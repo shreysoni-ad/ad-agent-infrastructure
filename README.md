@@ -1,6 +1,6 @@
 # AD Data Platform — Agent Infrastructure
 
-Kiro IDE agent infrastructure for the Alter Domus Data Platform team. This package contains the complete AI-assisted development environment: hooks, steering files, MCP servers, memory system, governance policies, and an AI Engineering Coach persona.
+AI agent infrastructure for any MCP-compatible coding agent (Kiro, Claude Code, Cursor, Codex, Windsurf, GitHub Copilot). This package contains a complete reference implementation: hooks, steering files, MCP servers, memory system, governance policies, and an AI Engineering Coach persona. Adapt it to your coding style and requirements.
 
 ## What's Included
 
