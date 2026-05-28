@@ -83,7 +83,33 @@ cp -r settings/ /path/to/workspace/.kiro/settings/
 | Python | 3.11+ | uvx, pre-commit, dbt |
 | Node.js | 18+ | npx MCP servers |
 | uvx | latest | Python MCP servers |
-| Kiro IDE | latest | Agent runtime |
+| IDE | Any MCP-compatible | Kiro, Claude Code, Cursor, Windsurf, Codex, etc. |
+
+## Works With Any AI Coding Agent
+
+This infrastructure is **not locked to a single IDE**. The same principles, patterns, and tools work across all MCP-compatible AI coding agents:
+
+| IDE / Agent | Steering | Hooks | MCP Servers | Memory | Governance |
+|-------------|----------|-------|-------------|--------|------------|
+| **Kiro** | `.kiro/steering/*.md` | `.kiro/hooks/*.kiro.hook` | `.kiro/settings/mcp.json` | ✅ | ✅ |
+| **Claude Code** | `CLAUDE.md` | `.claude/hooks.json` | `.mcp.json` | ✅ | ✅ (plugin) |
+| **Cursor** | `.cursor/rules/*.mdc` | N/A (use rules) | `.cursor/mcp.json` | ✅ | ✅ |
+| **OpenAI Codex** | `AGENTS.md` | `.agents/hooks/` | `.agents/mcp.json` | ✅ | ✅ |
+| **Windsurf** | `.windsurf/rules/` | N/A | `.codeium/windsurf/mcp_config.json` | ✅ | ✅ |
+| **GitHub Copilot** | `.github/copilot-instructions.md` | N/A | VS Code MCP settings | ✅ | ✅ |
+
+**The core concepts are universal:**
+- **Steering files** = persistent instructions (different file format per IDE, same purpose)
+- **Hooks** = event-driven automation (preToolUse, postToolUse, agentStop — same events everywhere)
+- **MCP servers** = identical protocol across all clients (same `mcp.json` format)
+- **Memory** = Memory MCP server works in ANY MCP-compatible client
+- **Governance** = Microsoft AGT has plugins for Claude Code, Kiro, and VS Code
+
+**To adapt for your IDE:**
+1. Read `docs/claude-code-integration.md` for Claude Code specifics
+2. Read `docs/kiro-integration.md` for Kiro specifics
+3. For Cursor/Codex/Windsurf: same MCP config, translate steering to their rules format
+4. The governance policy (AGT) and memory system work identically everywhere
 
 ## Hooks Summary
 
