@@ -49,12 +49,19 @@ Kiro IDE agent infrastructure for the Alter Domus Data Platform team. This packa
 
 ## Quick Install
 
+> **Note:** This repo is a **reference implementation and guidance**. It demonstrates patterns and best practices for AI agent infrastructure. Clone it, study the architecture, and adapt it to your own coding style, tech stack, and requirements. Don't blindly copy — understand what each component does and customize it for your team.
+
 ```bash
-# Clone this repo or copy the folder
-git clone <this-repo> ad-agent-infrastructure
+# Clone this repo to study and adapt
+git clone https://github.com/shreysoni-ad/ad-agent-infrastructure.git
 cd ad-agent-infrastructure
 
-# Install to your workspace
+# Review the docs first
+cat docs/getting-started.md
+cat docs/infrastructure-overview.md
+
+# When ready — adapt and install to your workspace
+# Customize steering files, hooks, and MCP configs for YOUR project
 ./install.sh /path/to/your/workspace
 
 # Start local services (optional — for graph memory)
