@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  falkordb:
+    image: falkordb/falkordb
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  openmetadata:
+    image: openmetadata/server:latest
+    ports:
+      - "8585:8585"
+    environment:
+      - OPENMETADATA_CLUSTER_NAME=ad-data-platform
+    depends_on:
+      - openmetadata-db
+
+  openmetadata-db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=openmetadata
+      - POSTGRES_PASSWORD=openmetadata
+      - POSTGRES_DB=openmetadata
+    ports:
+      - "5432:5432"
+    volumes:
+      - openmetadata-db:/var/lib/postgresql/data
+
+volumes:
+  openmetadata-db:
